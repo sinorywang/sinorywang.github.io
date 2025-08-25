@@ -3,92 +3,106 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sinory Wang - Personal Homepage</title>
+  <title>Xinyu Wang</title>
   <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      background-color: #f0f2f5;
-      color: #333;
     }
-    header {
-      background-color: #4a90e2;
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: white;
-      text-align: center;
-      padding: 60px 20px;
+      background-color: #000;
     }
-    header img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      border: 3px solid white;
-      margin-bottom: 15px;
-      object-fit: cover;
+    /* Hero Section */
+    header {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      background: url('Livephoto.jpg') no-repeat center center/cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    header::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0,0,0,0.4); /* 黑色遮罩，让文字更清晰 */
     }
     header h1 {
-      margin: 10px 0;
-      font-size: 2.2em;
+      position: relative;
+      font-size: 5vw; /* 根据屏幕自适应 */
+      margin-bottom: 20px;
     }
     header p {
-      font-size: 1.1em;
+      position: relative;
+      font-size: 1.5vw;
+      margin-top: 10px;
     }
+    a.contact-link {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+    /* Main sections */
     main {
-      max-width: 800px;
-      margin: 40px auto;
+      max-width: 900px;
+      margin: 60px auto;
       padding: 0 20px;
+      color: #333;
     }
     section {
-      margin-bottom: 40px;
+      margin-bottom: 60px;
     }
-    h2 {
-      font-size: 1.6em;
+    section h2 {
+      font-size: 2em;
       border-left: 5px solid #4a90e2;
       padding-left: 10px;
       margin-bottom: 15px;
+      color: #333;
     }
-    p {
+    section p {
       line-height: 1.7;
-    }
-    .contact a {
-      display: inline-block;
-      margin-right: 20px;
-      text-decoration: none;
-      color: #4a90e2;
-      font-weight: bold;
+      color: #555;
     }
     footer {
       text-align: center;
-      background-color: #e5e5e5;
+      background-color: #eee;
       padding: 20px;
       color: #555;
       font-size: 0.9em;
     }
-    @media (max-width: 600px) {
-      header h1 { font-size: 1.8em; }
-      header p { font-size: 1em; }
+    @media(max-width: 768px){
+      header h1 { font-size: 10vw; }
+      header p { font-size: 4vw; }
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="Myphoto.jpg" alt="Profile Picture">
-    <h1>Sinory Wang</h1>
-    <p>Applied Psychology | Music/Auditory Cognition</p>
+    <h1>Xinyu Wang</h1>
+    <p>
+      <a href="mailto:sinorywang@gmail.com" class="contact-link">sinorywang@gmail.com</a> |
+      <a href="https://github.com/sinorywang" target="_blank" class="contact-link">GitHub</a>
+    </p>
   </header>
 
   <main>
-    <section>
+    <section id="about">
       <h2>About Me</h2>
       <p>
-        Hello! I am Xinyu(Sinory) Wang, currently studying Applied Psychology at Hanhong College, Southwest University, China. 
-        My research interests focus on <strong>music cognition, emotion regulation, and neuroscience</strong>. 
-        I am passionate about arts and enjoy participating in cultural activities.
+        Hello! I am Xinyu Wang, currently studying Applied Psychology at Southwest University. 
+        My research focuses on music cognition and neuroscience.
       </p>
     </section>
 
-    <section>
-      <h2>Research Interests</h2>
+    <section id="research">
+      <h2>Research</h2>
       <p>
         - Music and emotion regulation <br>
         - Neuroscience of music cognition <br>
@@ -96,18 +110,17 @@
       </p>
     </section>
 
-    <section>
-      <h2>Contact</h2>
-      <p class="contact">
-        📧 <a href="mailto:sinorywang@gmail.com">sinorywang@gmail.com</a><br>
-        💻 <a href="https://github.com/sinorywang" target="_blank">GitHub</a><br>
+    <section id="music">
+      <h2>Music</h2>
+      <p>
+        I enjoy music performance and exploring how music influences emotional experience. 
+        I actively participate in campus music events and ensembles.
       </p>
     </section>
   </main>
 
   <footer>
-    © 2025 Sinory Wang | Personal Homepage
+    © 2025 Xinyu Wang | Personal Homepage
   </footer>
 </body>
 </html>
-
