@@ -5,97 +5,173 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Music - Xinyu Wang</title>
   <style>
-   body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin:0;
-  padding:0;
-  color:white;
-  background: url('band_photo.jpg') no-repeat center center/cover;
-  position: relative;
-}
-body::before {
-  content:"";
-  position: absolute;
-  top:0; left:0; right:0; bottom:0;
-  background-color: rgba(0,0,0,0.5); 
-  z-index:0;
-}
+    /* 基本样式 */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin:0;
+      padding:0;
+      color:white;
+      position: relative;
+    }
 
-h1, .brief, h2, .music-gallery, .music-demos, .netcloud, nav {
-  position: relative;
-  z-index:1;
-}
+    /* 背景图 + 遮罩 */
+    body::before {
+      content:"";
+      position: fixed;
+      top:0; left:0; right:0; bottom:0;
+      background: url('band_photo.jpg') no-repeat center center/cover;
+      z-index:0;
+    }
 
-    .music-gallery, .music-demos { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; margin-bottom:50px; padding:0 20px; }
-    .music-card { background: rgba(0,0,0,0.6); border-radius:10px; padding:10px; width:300px; text-align:center; }
-    .music-card img { width:220px; height:300px; object-fit:cover; border-radius:8px; margin-bottom:10px; } /* 统一大小 */
+    body::after {
+      content:"";
+      position: fixed;
+      top:0; left:0; right:0; bottom:0;
+      background-color: rgba(0,0,0,0.5);
+      z-index:0;
+    }
+
+    /* 内容容器 */
+    .content {
+      position: relative;
+      z-index:1;
+      padding:20px;
+    }
+
+    /* 导航 */
+    nav {
+      background: rgba(0,0,0,0.7);
+      padding:10px;
+      text-align:center;
+      position: sticky;
+      top:0;
+      z-index:2;
+    }
+    nav a {
+      margin:0 15px;
+      color:white;
+      font-weight:bold;
+      text-decoration:none;
+    }
+    nav a:hover { text-decoration:underline; }
+
+    /* 标题和简介 */
+    h1 { text-align:center; margin:30px 0; }
+    .brief {
+      text-align:center;
+      line-height:1.6;
+      max-width:700px;
+      margin:0 auto 40px auto;
+      font-size:1.2em;
+    }
+
+    /* 海报与音乐卡片 */
+    h2 { border-left:5px solid #4a90e2; padding-left:10px; margin-bottom:15px; margin-top:50px; }
+    .music-gallery, .music-demos { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; margin-bottom:50px; }
+    .music-card {
+      background: rgba(0,0,0,0.6);
+      border-radius:10px;
+      padding:10px;
+      width:220px;
+      text-align:center;
+      flex-shrink:0;
+    }
+    .music-card img {
+      width:100%;
+      height:300px;
+      object-fit:cover;
+      border-radius:8px;
+      margin-bottom:10px;
+    }
     .music-card audio { width:100%; margin-bottom:5px; }
     .music-card p { color:white; font-size:0.95em; }
+
+    /* 网易云链接 */
+    .netcloud {
+      text-align:center;
+      margin-bottom:50px;
+      font-size:1.1em;
+    }
+    .netcloud a { color:#4a90e2; font-weight:bold; text-decoration:none; }
+    .netcloud a:hover { text-decoration:underline; }
+
+    /* 链接样式 */
     a { color:#4a90e2; text-decoration:none; }
     a:hover { text-decoration:underline; }
-    nav { background: rgba(0,0,0,0.7); padding:10px; text-align:center; }
-    nav a { margin:0 15px; color:white; font-weight:bold; }
-    .netcloud { text-align:center; margin-bottom:50px; font-size:1.1em; }
-    .netcloud a { color:#4a90e2; font-weight:bold; }
-    .netcloud a:hover { text-decoration:underline; }
+
+    /* 响应式 */
+    @media(max-width:768px){
+      .music-card { width:45%; }
+      .music-card img { height:250px; }
+      .brief { font-size:1em; }
+    }
+    @media(max-width:480px){
+      .music-card { width:90%; }
+      .music-card img { height:200px; }
+      .brief { font-size:0.95em; }
+    }
+
   </style>
 </head>
 <body>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="research.html">Research</a>
-    <a href="music.html">Music</a>
-    <a href="CV.pdf">CV</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <div class="content">
 
-<h1>Music Portfolio</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="music.html">Music</a>
+      <a href="CV.pdf">CV</a>
+      <a href="#contact">Contact</a>
+    </nav>
 
-<p class="brief" style="text-align:center; line-height:1.6;">
-  Music is a best friend to me. I enjoy listening to all genre of music (Fav: LCD Soundsystem), music performance and exploring how music influences emotional experience.  
-  Influenced by New Order and Talking Heads.  
-  My friends <strong>Zhihao Liu</strong> (Lead Guitar), <strong>Zetao Wang</strong> (Lead Vocal) and I (Bass) started an electro-punk band <strong>Dead Water Birds</strong>.  
-  Below you can find our concert posters, pictures, and music demos.
-</p>
+    <h1>Music Portfolio</h1>
 
+    <p class="brief">
+      Music is a best friend to me. I enjoy listening to all genre of music (Fav: LCD Soundsystem), music performance and exploring how music influences emotional experience.<br>
+      Influenced by New Order and Talking Heads.<br>
+      My friends <strong>Zhihao Liu</strong> (Lead Guitar), <strong>Zetao Wang</strong> (Lead Vocal) and I (Bass) started an electro-punk band <strong>Dead Water Birds</strong>.<br>
+      Below you can find our concert posters, pictures, and music demos.
+    </p>
 
-<div class="music-gallery">
-  <div class="music-card">
-    <img src="poster.png" alt="Concert Poster 1">
-    <p>Concert Poster - 2024 in JahBar, Chengdu</p>
-  </div>
-  <div class="music-card">
-    <img src="poster2.jpg" alt="Concert Poster 2">
-    <p>Concert Poster - 2024 in Nuts Livehouse, Chongqing</p>
-  </div>
-  <div class="music-card">
-    <img src="poster3.jpg" alt="Concert Poster 3">
-    <p>Concert Poster - 2025 in Yuyintang Park, Shanghai</p>
-  </div>
-</div>
-
-
-  <h2>Music Demos</h2>
-  <div class="music-demos">
-    <div class="music-card">
-      <audio controls>
-        <source src="demo1.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
-      <p>Music Demo 1</p>
+    <h2>Pictures and Posters</h2>
+    <div class="music-gallery">
+      <div class="music-card">
+        <img src="poster.png" alt="Concert Poster 1">
+        <p>Concert Poster - 2024 in JahBar, Chengdu</p>
+      </div>
+      <div class="music-card">
+        <img src="poster2.jpg" alt="Concert Poster 2">
+        <p>Concert Poster - 2024 in Nuts Livehouse, Chongqing</p>
+      </div>
+      <div class="music-card">
+        <img src="poster3.jpg" alt="Concert Poster 3">
+        <p>Concert Poster - 2025 in Yuyintang Park, Shanghai</p>
+      </div>
     </div>
-    <div class="music-card">
-      <audio controls>
-        <source src="demo2.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
-      <p>Music Demo 2</p>
-    </div>
-  </div>
 
-  <div class="netcloud">
-    Listen to our band on <a href="https://music.163.com/#/artist?id=你的乐队ID" target="_blank">NetEase Cloud Music</a>
+    <h2>Music Demos</h2>
+    <div class="music-demos">
+      <div class="music-card">
+        <audio controls>
+          <source src="demo1.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+        <p>Music Demo 1</p>
+      </div>
+      <div class="music-card">
+        <audio controls>
+          <source src="demo2.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+        <p>Music Demo 2</p>
+      </div>
+    </div>
+
+    <div class="netcloud">
+      Listen to our band on <a href="https://music.163.com/#/artist?id=你的乐队ID" target="_blank">NetEase Cloud Music</a>
+    </div>
+
   </div>
 
 </body>
