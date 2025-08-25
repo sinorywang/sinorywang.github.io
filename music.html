@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music - Xinyu Wang</title>
+  <style>
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color:#000; color:white; margin:0; padding:0;}
+    h1 { text-align:center; margin:30px 0; }
+    .music-gallery { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; padding:0 20px; }
+    .music-card { background: rgba(0,0,0,0.6); border-radius:10px; padding:10px; width:300px; text-align:center; }
+    .music-card img { width:100%; border-radius:8px; margin-bottom:10px; }
+    .music-card audio { width:100%; margin-bottom:5px; }
+    .music-card p { color:white; font-size:0.95em; }
+    a { color:#4a90e2; text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    nav { background: rgba(0,0,0,0.7); padding:10px; text-align:center; }
+    nav a { margin:0 15px; color:white; font-weight:bold; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="research.html">Research</a>
+    <a href="music.html">Music</a>
+    <a href="CV.pdf">CV</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <h1>Music Portfolio</h1>
+
+  <div class="music-gallery">
+    <div class="music-card">
+      <img src="poster.png" alt="Concert Poster 1">
+      <p>Concert Poster - 2023</p>
+    </div>
+    <div class="music-card">
+      <img src="poster2.jpg" alt="Concert Poster 2">
+      <p>Live Performance - Jazz Ensemble</p>
+    </div>
+    <div class="music-card">
+      <audio controls>
+        <source src="demo1.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+      <p>Music Demo 1</p>
+    </div>
+    <div class="music-card">
+      <audio controls>
+        <source src="demo2.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+      <p>Music Demo 2</p>
+    </div>
+  </div>
+
+</body>
+</html>
