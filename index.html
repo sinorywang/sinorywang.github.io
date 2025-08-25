@@ -5,16 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Xinyu Wang</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin:0; padding:0; }
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: white;
       background-color: #000;
+      scroll-behavior: smooth;
     }
+
+    /* Top Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.7);
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 15px 0;
+      z-index: 100;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #4a90e2;
+    }
+
     /* Hero Section */
     header {
       position: relative;
@@ -31,11 +51,11 @@
       content: "";
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background-color: rgba(0,0,0,0.4); /* 黑色遮罩，让文字更清晰 */
+      background-color: rgba(0,0,0,0.4);
     }
     header h1 {
       position: relative;
-      font-size: 5vw; /* 根据屏幕自适应 */
+      font-size: 5vw;
       margin-bottom: 20px;
     }
     header p {
@@ -49,41 +69,71 @@
       margin: 0 15px;
       font-weight: bold;
     }
-    /* Main sections */
+
+    /* Main Sections */
     main {
       max-width: 900px;
       margin: 60px auto;
       padding: 0 20px;
-      color: #333;
     }
     section {
       margin-bottom: 60px;
+      padding: 25px;
+      background: rgba(0,0,0,0.6);
+      border-radius: 10px;
     }
     section h2 {
       font-size: 2em;
       border-left: 5px solid #4a90e2;
       padding-left: 10px;
       margin-bottom: 15px;
-      color: #333;
+      color: white;
     }
     section p {
       line-height: 1.7;
-      color: #555;
+      color: white;
     }
+    .section-button {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 8px 15px;
+      background: #4a90e2;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    .section-button:hover {
+      background: #357ABD;
+    }
+
     footer {
       text-align: center;
-      background-color: #eee;
+      background-color: rgba(0,0,0,0.8);
       padding: 20px;
-      color: #555;
+      color: white;
       font-size: 0.9em;
     }
+
     @media(max-width: 768px){
       header h1 { font-size: 10vw; }
       header p { font-size: 4vw; }
+      nav { gap: 15px; font-size: 0.9em; }
     }
   </style>
 </head>
 <body>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="#about">About Me</a>
+    <a href="#research">Research</a>
+    <a href="#music">Music</a>
+    <a href="#cv">CV</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- Hero Section -->
   <header>
     <h1>Xinyu Wang</h1>
     <p>
@@ -97,7 +147,8 @@
       <h2>About Me</h2>
       <p>
         Hello! I am Xinyu Wang, currently studying Applied Psychology at Southwest University. 
-        My research focuses on music cognition and neuroscience.
+        My research focuses on <strong>music cognition</strong> and <strong>neuroscience</strong>. 
+        I am passionate about arts and actively participate in campus music events.
       </p>
     </section>
 
@@ -108,13 +159,30 @@
         - Neuroscience of music cognition <br>
         - EEG, SCR, and HR experimental studies <br>
       </p>
+      <a href="research.html" class="section-button">Learn More</a>
     </section>
 
     <section id="music">
       <h2>Music</h2>
       <p>
         I enjoy music performance and exploring how music influences emotional experience. 
-        I actively participate in campus music events and ensembles.
+        I actively participate in ensembles and campus music activities.
+      </p>
+      <a href="music.html" class="section-button">See More</a>
+    </section>
+
+    <section id="cv">
+      <h2>CV</h2>
+      <p>
+        You can view or download my CV <a href="CV.pdf" style="color:#4a90e2;">here</a>.
+      </p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>
+        📧 <a href="mailto:sinorywang@gmail.com" class="contact-link">sinorywang@gmail.com</a><br>
+        💻 <a href="https://github.com/sinorywang" target="_blank" class="contact-link">GitHub</a>
       </p>
     </section>
   </main>
@@ -122,5 +190,6 @@
   <footer>
     © 2025 Xinyu Wang | Personal Homepage
   </footer>
+
 </body>
 </html>
