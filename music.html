@@ -152,126 +152,51 @@
 
 <h2>Music Demos</h2>
 <div class="music-demos">
-
-  <!-- Demo 1 -->
   <div class="music-card">
-    <img class="cover" src="demo1.jpg" alt="Demo 1 Cover">
-    <div class="player-info">
-      <p class="title">Music Demo 1</p>
-      <input type="range" class="progress" value="0" min="0" max="100">
-    </div>
-    <button class="play-btn">▶</button>
-    <audio src="Nihilism.mp3"></audio>
+    <audio controls>
+      <source src="Nihilism.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+    <p>Music Demo 1</p>
   </div>
-
-  <!-- Demo 2 -->
   <div class="music-card">
-    <img class="cover" src="demo2.jpg" alt="Demo 2 Cover">
-    <div class="player-info">
-      <p class="title">Music Demo 2</p>
-      <input type="range" class="progress" value="0" min="0" max="100">
-    </div>
-    <button class="play-btn">▶</button>
-    <audio src="Rive Droite.mp3"></audio>
+    <audio controls>
+      <source src="Rive Droite.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+    <p>Music Demo 2</p>
   </div>
-
 </div>
 
-    <style>
+<style>
 .music-demos {
   display:flex;
-  flex-direction:column;
+  flex-wrap:wrap;
   gap:20px;
-  align-items:center;
+  justify-content:center;
   margin-bottom:50px;
 }
 
 .music-card {
-  display:flex;
-  align-items:center;
-  width:350px;
-  background: rgba(0,0,0,0.7);
-  border-radius:15px;
-  padding:10px 15px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.6);
+  border-radius:10px;
+  padding:10px;
+  width:220px;
+  text-align:center;
+  flex-shrink:0;
 }
 
-.cover {
-  width:60px;
-  height:60px;
-  object-fit:cover;
-  border-radius:8px;
-  margin-right:15px;
-}
-
-.player-info {
-  flex:1;
-}
-
-.title {
-  margin:0 0 5px 0;
-  font-weight:bold;
-}
-
-.progress {
+.music-card audio {
   width:100%;
-  -webkit-appearance:none;
-  height:5px;
-  border-radius:5px;
-  background:#555;
-  cursor:pointer;
+  margin-bottom:5px;
 }
 
-.progress::-webkit-slider-thumb {
-  -webkit-appearance:none;
-  width:12px;
-  height:12px;
-  border-radius:50%;
-  background:#4a90e2;
-  cursor:pointer;
-}
-
-.play-btn {
-  background:#4a90e2;
+.music-card p {
   color:white;
-  border:none;
-  border-radius:50%;
-  width:40px;
-  height:40px;
-  font-size:1.2em;
-  margin-left:10px;
-  cursor:pointer;
+  font-size:0.95em;
 }
 </style>
 
-<script>
-// 简单播放控制
-document.querySelectorAll('.music-card').forEach(card => {
-  const audio = card.querySelector('audio');
-  const btn = card.querySelector('.play-btn');
-  const progress = card.querySelector('.progress');
-
-  btn.addEventListener('click', () => {
-    if(audio.paused){
-      audio.play();
-      btn.textContent = '❚❚';
-    } else {
-      audio.pause();
-      btn.textContent = '▶';
-    }
-  });
-
-  // 更新进度条
-  audio.addEventListener('timeupdate', () => {
-    progress.value = (audio.currentTime / audio.duration) * 100;
-  });
-
-  // 拖动进度条
-  progress.addEventListener('input', () => {
-    audio.currentTime = (progress.value / 100) * audio.duration;
-  });
-});
-</script>
     <div class="netcloud">
       Listen to our band Dead Water Birds on <a href=" https://163cn.tv/IYhaNCk" target="_blank">NetEase Cloud Music</a>
     </div>
