@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research - Xinyu Wang</title>
+  <style>
+    body {
+      margin:0;
+      padding:0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('research_bg.jpg') no-repeat center center/cover;
+      color: #000;
+      position: relative;
+    }
+
+    /* 导航 */
+    nav {
+      background: rgba(255,255,255,0.8);
+      padding:10px;
+      text-align:center;
+      position: sticky;
+      top:0;
+      z-index:1;
+    }
+    nav a {
+      margin:0 15px;
+      color:#000;
+      font-weight:bold;
+      text-decoration:none;
+    }
+    nav a:hover { text-decoration:underline; }
+
+    /* 遮罩，保证文字清晰 */
+    body::before {
+      content:"";
+      position:absolute;
+      top:0; left:0; right:0; bottom:0;
+      background-color: rgba(255,255,255,0.0); /* 可调整透明度 */
+      z-index:0;
+    }
+
+    .content {
+      position: relative;
+      z-index:1;
+      max-width:900px;
+      margin:60px auto;
+      padding:0 20px;
+    }
+
+    h1 {
+      text-align:center;
+      margin-bottom:20px;
+    }
+
+    .brief {
+      text-align:center;
+      line-height:1.6;
+      margin-bottom:50px;
+      font-size:1.2em;
+    }
+
+    .project {
+      background: rgba(255,255,255,0.8); /* 半透明白色卡片 */
+      padding:15px 20px;
+      border-left:5px solid #4a90e2;
+      margin-bottom:30px;
+      border-radius:8px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .project h2 {
+      margin-bottom:10px;
+    }
+
+    .project p {
+      margin:0;
+      line-height:1.5;
+    }
+
+    @media(max-width:768px){
+      .brief { font-size:1em; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="research.html">Research</a>
+    <a href="music.html">Music</a>
+    <a href="CV.pdf">CV</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="content">
+    <h1>Research</h1>
+    <p class="brief">
+      My research focuses on music cognition, mental health and neuroscience. I am interested in understanding how music influences emotional experience and cognitive processes using behavioral and physiological methods.
+      Besides, I love to develop small web audio tools for auditory process, you can find them in my GitHub.
+    </p>
+
+
+    <div class="project">
+      <h2>How Consanant and Dissant Music affect Neural synchrony: An EEG study</h2>
+      <p>
+        Using ten house music with almost same bpm(123), and modulate into better and worse superposition version by Audacity,
+        collecting subjects tapping synchrony to the beats and EEG data, then using Temporal Response Function to test
+        the music-brain synchrony.
+      </p>
+    </div>
+
+
+
+  </div>
+
+</body>
+</html>
