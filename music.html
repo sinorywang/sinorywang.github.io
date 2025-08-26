@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Music - Xinyu Wang</title>
   <style>
-    /* 基本样式 */
+
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin:0;
@@ -14,7 +14,6 @@
       position: relative;
     }
 
-    /* 背景图 + 遮罩 */
     body::before {
       content:"";
       position: fixed;
@@ -31,14 +30,12 @@
       z-index:0;
     }
 
-    /* 内容容器 */
     .content {
       position: relative;
       z-index:1;
       padding:20px;
     }
 
-    /* 导航 */
     nav {
       background: rgba(0,0,0,0.7);
       padding:10px;
@@ -55,7 +52,6 @@
     }
     nav a:hover { text-decoration:underline; }
 
-    /* 标题和简介 */
     h1 { text-align:center; margin:30px 0; }
     .brief {
       text-align:center;
@@ -65,7 +61,6 @@
       font-size:1.2em;
     }
 
-    /* 海报与音乐卡片 */
     h2 { border-left:5px solid #4a90e2; padding-left:10px; margin-bottom:15px; margin-top:50px; }
     .music-gallery, .music-demos { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; margin-bottom:50px; }
     .music-card {
@@ -86,7 +81,6 @@
     .music-card audio { width:100%; margin-bottom:5px; }
     .music-card p { color:white; font-size:0.95em; }
 
-    /* 网易云链接 */
     .netcloud {
       text-align:center;
       margin-bottom:50px;
@@ -95,11 +89,9 @@
     .netcloud a { color:#4a90e2; font-weight:bold; text-decoration:none; }
     .netcloud a:hover { text-decoration:underline; }
 
-    /* 链接样式 */
     a { color:#4a90e2; text-decoration:none; }
     a:hover { text-decoration:underline; }
 
-    /* 响应式 */
     @media(max-width:768px){
       .music-card { width:45%; }
       .music-card img { height:250px; }
@@ -121,7 +113,7 @@
       <a href="index.html">Home</a>
       <a href="research.html">Research</a>
       <a href="music.html">Music</a>
-      <a href="CV.pdf">CV</a>
+      <a href="XinyuWang_CV.pdf">CV</a>
       <a href="#contact">Contact</a>
     </nav>
 
