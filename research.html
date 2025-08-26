@@ -31,12 +31,12 @@
     }
     nav a:hover { text-decoration:underline; }
 
-    /* 遮罩，保证文字清晰 */
+    /* 遮罩 */
     body::before {
       content:"";
       position:absolute;
       top:0; left:0; right:0; bottom:0;
-      background-color: rgba(255,255,255,0.0); /* 可调整透明度 */
+      background-color: rgba(255,255,255,0.0);
       z-index:0;
     }
 
@@ -60,8 +60,8 @@
       font-size:1.2em;
     }
 
-    .project {
-      background: rgba(255,255,255,0.8); /* 半透明白色卡片 */
+    .project, .experience {
+      background: rgba(255,255,255,0.8);
       padding:15px 20px;
       border-left:5px solid #4a90e2;
       margin-bottom:30px;
@@ -69,11 +69,11 @@
       box-shadow:0 4px 10px rgba(0,0,0,0.1);
     }
 
-    .project h2 {
+    .project h2, .experience h2 {
       margin-bottom:10px;
     }
 
-    .project p {
+    .project p, .experience p {
       margin:0;
       line-height:1.5;
     }
@@ -96,22 +96,43 @@
   <div class="content">
     <h1>Research</h1>
     <p class="brief">
-      My research focuses on music cognition, mental health and neuroscience. I am interested in understanding how music influences emotional experience and cognitive processes using behavioral and physiological methods.
+      My research focuses on music cognition, mental health, and neuroscience. I am interested in understanding how music influences emotional experience and cognitive processes using behavioral and physiological methods.
       Besides, I love to develop small web audio tools for auditory process, you can find them in my GitHub.
     </p>
 
-
+    <!-- Existing project -->
     <div class="project">
-      <h2>How Consanant and Dissant Music affect Neural synchrony: An EEG study</h2>
+      <h2>How Consonant and Dissonant Music affect Neural Synchrony: An EEG Study</h2>
       <p>
-        Using ten house music with almost same bpm(123), and modulate into better and worse superposition version by Audacity,
-        collecting subjects tapping synchrony to the beats and EEG data, then using Temporal Response Function to test
-        the music-brain synchrony.
+        Using ten house music tracks with almost the same bpm (123), modulated into better and worse superposition versions using Audacity.
+        Collected subjects' tapping synchrony to the beats and EEG data, then used Temporal Response Function to test the music-brain synchrony.
       </p>
     </div>
 
+    <!-- New Research Experience section -->
+    <h1>Research Experience</h1>
 
+    <div class="experience">
+      <h2>Research Intern at Music, Brain and Health Lab, spuervisor: Dr.Daniel Bowling, Assistant Professor</h2>
+      <p>
+        lead an independent project on Neural Synchrony.
+      </p>
+    </div>
 
+    <div class="experience">
+      <h2>Remote Research Assistant at Center for Treatment and Study of Anxiety, University of Pennsylvania, supervisor: Dr.Tao Lin, Instructor</h2>
+      <p>
+         Screening and correlation analysis of articles related to network meta-analysis.
+      </p>
+    </div>
+
+        <div class="experience">
+      <h2>Research Assistant at Inst. of Psychology, Chinese Academy of Science, supervisor: Dr.Yi Du, Professor</h2>
+      <p>
+         Cooperated with PhD student on a EEG-fMRI project, to understand the role of the temporoparietal junction and insular cortex in
+ music reward.
+      </p>
+    </div>
   </div>
 
 </body>
