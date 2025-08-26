@@ -67,17 +67,37 @@
       box-shadow:0 4px 10px rgba(0,0,0,0.1);
     }
 
-    .project h2, .experience h2 {
+    .project h2 {
       margin-bottom:10px;
     }
-
-    .project p, .experience p {
+    .experience h2 {
+      margin-bottom:5px;
+      font-size:1.1em; /* 比项目标题小 */
+    }
+    .experience p {
       margin:0;
-      line-height:1.5;
+      line-height:1.4;
+      font-size:0.9em;
+      color:#333;
+    }
+
+    .logos {
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:40px;
+      margin-top:50px;
+      flex-wrap:wrap;
+    }
+    .logos img {
+      height:60px; 
+      object-fit:contain;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
     }
 
     @media(max-width:768px){
       .brief { font-size:1em; }
+      .logos img { height:50px; }
     }
   </style>
 </head>
@@ -98,7 +118,6 @@
       Besides, I love to develop small web audio tools for auditory process, you can find them in my GitHub.
     </p>
 
-    <!-- Existing project -->
     <div class="project">
       <h2>How Consonant and Dissonant Music affect Neural Synchrony: An EEG Study</h2>
       <p>
@@ -107,30 +126,25 @@
       </p>
     </div>
 
-    <!-- New Research Experience section -->
+    <!-- Research Experience -->
     <h1>Research Experience</h1>
 
     <div class="experience">
-      <h2>Research Intern at Music, Brain and Health Lab, spuervisor: Dr.Daniel Bowling, Assistant Professor</h2>
-      <p>
-        lead an independent project on Neural Synchrony.
-      </p>
+      <h2>Research Intern at Music, Brain and Health Lab (Supervisor: Dr. Daniel Bowling)</h2>
+      <p>Led an independent project on Neural Synchrony.</p>
     </div>
 
     <div class="experience">
-      <h2>Remote Research Assistant at Center for Treatment and Study of Anxiety, University of Pennsylvania, supervisor: Dr.Tao Lin, Instructor</h2>
-      <p>
-         Screening and correlation analysis of articles related to network meta-analysis.
-      </p>
+      <h2>Remote RA at Center for Treatment and Study of Anxiety, University of Pennsylvania (Supervisor: Dr. Tao Lin)</h2>
+      <p>Screening and correlation analysis of articles related to network meta-analysis.</p>
     </div>
 
-        <div class="experience">
-      <h2>Research Assistant at Inst. of Psychology, Chinese Academy of Science, supervisor: Dr.Yi Du, Professor</h2>
-      <p>
-         Cooperated with PhD student on a EEG-fMRI project, to understand the role of the temporoparietal junction and insular cortex in
- music reward.
-      </p>
+    <div class="experience">
+      <h2>RA at Institute of Psychology, Chinese Academy of Science (Supervisor: Dr. Yi Du)</h2>
+      <p>Cooperated with PhD student on EEG-fMRI project, studying TPJ and insula in music reward.</p>
     </div>
+
+
   </div>
 
 </body>
