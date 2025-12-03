@@ -3,39 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Xinyu Wang</title>
+  <title>Xinyu Wang | Homepage</title>
   <style>
-    * { box-sizing: border-box; margin:0; padding:0; }
+    /* 全局重置与基础设置 */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: white;
-      background-color: #000;
+      color: #e0e0e0; /* 柔和的灰白色，不刺眼 */
+      background-color: #121212; /* 深灰色背景，比纯黑更有质感 */
+      line-height: 1.6;
       scroll-behavior: smooth;
     }
 
-    /* Top Navigation */
+    /* 导航栏 - 增加毛玻璃效果 */
     nav {
       position: sticky;
       top: 0;
       width: 100%;
-      background: rgba(0,0,0,0.7);
+      background: rgba(18, 18, 18, 0.85); /* 半透明深色 */
+      backdrop-filter: blur(10px); /* 毛玻璃模糊效果 */
       display: flex;
       justify-content: center;
-      gap: 30px;
+      align-items: center;
+      gap: 40px;
       padding: 15px 0;
-      z-index: 100;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
     }
     nav a {
-      color: white;
+      color: #ccc;
       text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s;
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      position: relative;
     }
     nav a:hover {
       color: #4a90e2;
     }
+    /* 导航栏下划线动画 */
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: #4a90e2;
+      transition: width 0.3s;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
 
-    /* Hero Section */
+    /* Hero Section - 保持你的酷炫背景 */
     header {
       position: relative;
       width: 100%;
@@ -47,78 +69,154 @@
       align-items: center;
       text-align: center;
     }
+    /* 遮罩层渐变，让底部过渡更自然 */
     header::after {
       content: "";
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background-color: rgba(0,0,0,0.4);
+      background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(18,18,18,1));
     }
-    header h1 {
+    
+    .hero-content {
       position: relative;
-      font-size: 5vw;
-      margin-bottom: 20px;
-    }
-    header p {
-      position: relative;
-      font-size: 1.5vw;
-      margin-top: 10px;
-    }
-    a.contact-link {
-      color: white;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
+      z-index: 2;
+      animation: fadeInUp 1s ease-out;
     }
 
-    /* Main Sections */
+    header h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    }
+    header .subtitle {
+      font-size: 1.5rem;
+      color: #ccc;
+      margin-top: 10px;
+      font-weight: 300;
+    }
+
+    /* 简单的淡入动画 */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* 主要内容区域 */
     main {
       max-width: 900px;
-      margin: 60px auto;
+      margin: -50px auto 60px; /* 负边距让内容稍微盖住一点 Header，增加层次感 */
       padding: 0 20px;
+      position: relative;
+      z-index: 10;
     }
+
+    /* 卡片通用样式 */
     section {
-      margin-bottom: 60px;
-      padding: 25px;
-      background: rgba(0,0,0,0.6);
-      border-radius: 10px;
+      background: #1e1e1e; /* 卡片背景色 */
+      border-radius: 16px;
+      padding: 40px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3); /* 柔和阴影 */
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(255,255,255,0.05);
     }
+    section:hover {
+      transform: translateY(-5px); /* 鼠标悬停上浮 */
+      box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+    }
+
     section h2 {
-      font-size: 2em;
-      border-left: 5px solid #4a90e2;
-      padding-left: 10px;
-      margin-bottom: 15px;
-      color: white;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #fff;
+      display: flex;
+      align-items: center;
     }
+    /* 标题前的蓝色竖条装饰 */
+    section h2::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 30px;
+      background: #4a90e2;
+      margin-right: 15px;
+      border-radius: 3px;
+    }
+
     section p {
-      line-height: 1.7;
-      color: white;
+      font-size: 1.05rem;
+      color: #bbb;
+      margin-bottom: 15px;
+      line-height: 1.8;
     }
+
+    strong {
+      color: #4a90e2; /* 强调文字使用主题色 */
+    }
+
+    /* Research 标签样式优化 */
+    .research-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .tag {
+      background: rgba(74, 144, 226, 0.15);
+      color: #4a90e2;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      border: 1px solid rgba(74, 144, 226, 0.3);
+    }
+
+    /* 按钮样式优化 */
     .section-button {
       display: inline-block;
-      margin-top: 15px;
-      padding: 8px 15px;
+      margin-top: 20px;
+      padding: 10px 25px;
       background: #4a90e2;
       color: white;
       text-decoration: none;
-      border-radius: 5px;
+      border-radius: 30px;
       font-weight: bold;
+      transition: background 0.3s, transform 0.2s;
     }
     .section-button:hover {
       background: #357ABD;
+      transform: scale(1.05);
+    }
+
+    /* 联系方式链接 */
+    a.contact-link {
+      color: #4a90e2;
+      text-decoration: none;
+      margin: 0 5px;
+      transition: color 0.2s;
+      border-bottom: 1px dotted #4a90e2;
+    }
+    a.contact-link:hover {
+      color: #fff;
+      border-bottom: 1px solid #fff;
     }
 
     footer {
       text-align: center;
-      background-color: rgba(0,0,0,0.8);
-      padding: 20px;
-      color: white;
+      padding: 40px 20px;
+      color: #666;
       font-size: 0.9em;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      margin-top: 40px;
     }
 
+    /* 移动端适配 */
     @media(max-width: 768px){
-      header h1 { font-size: 10vw; }
-      header p { font-size: 4vw; }
-      nav { gap: 15px; font-size: 0.9em; }
+      header h1 { font-size: 2.5rem; }
+      nav { gap: 15px; font-size: 0.9em; flex-wrap: wrap; }
+      section { padding: 25px; }
     }
   </style>
 </head>
@@ -129,69 +227,85 @@
   <a href="research.html">Research</a>
   <a href="music.html">Music</a>
   <a href="XinyuWang_CV.pdf" target="_blank">CV</a>
-  <a href="index.html#contact">Contact</a>
+  <a href="#contact">Contact</a>
 </nav>
 
-  <header>
+<header>
+  <div class="hero-content">
     <h1>Xinyu Wang</h1>
+    <div class="subtitle">B.S. Candidate in Applied Psychology</div>
+    <div class="subtitle">Bass Player</div>
+  </div>
+</header>
+
+<main>
+  
+  <section id="about">
+    <h2>About Me</h2>
     <p>
-      <p>B.S. Candidate in Applied Psychology</p>
-      <p>Bass Player</p>
+      Welcome to my homepage! I am Xinyu Wang, currently a B.S. candidate in Applied Psychology at Yuan Longping honor program, Hanhong College, Southwest University. 
     </p>
-  </header>
+    <p>
+      Currently I'm a research intern at Dr. Daniel Bowling's <strong>Music, Brain and Health Lab</strong>, Stanford.
+    </p>
+    <p>
+      My research focuses on <strong>music cognition</strong> and <strong>auditory perception</strong>. 
+      I am passionate about everything related to <strong>music</strong> and <strong>auditory processing</strong>.
+    </p>
+    <p>
+      I'm also starting an Electronic Punk band with my friends in China. You can find more information about my band in the <a href="music.html" class="contact-link">Music Page</a>.
+    </p>
+  </section>
 
-  <main>
-    <section id="about">
-      <h2>About Me</h2>
-      <p>
-        Welcome to my homepage! I am Xinyu Wang, currently a B.S. candidate in Applied Psychology at Yuan Longping honor program, Hanhong College,Southwest University. 
-        Currently I'm a research intern at Dr.Daniel Bowling's <strong>Music, Brain and Health Lab</strong>, Stanford.<br>
-        
-        My research focuses on <strong>music cognition</strong> and <strong>auditory perceptin</strong>. 
-        I am passionate about everything related to <strong>music</strong> and <strong>auditory</strong>.<br>
-        I'm also starting an Electronic Punk band with my friends in China, you can find more information about my band in the <a href="music.html">Music</a> Page.
-      </p>
-    </section>
+  <section id="research">
+    <h2>Research Interests</h2>
+    <p>
+      I am actively exploring the intersection of biological signals and musical experience.
+    </p>
+    <div class="research-tags">
+      <span class="tag">Music and Emotion</span>
+      <span class="tag">Auditory Perception</span>
+      <span class="tag">EEG Studies</span>
+      <span class="tag">fMRI</span>
+      <span class="tag">Biological Studies</span>
+    </div>
+    <br>
+    <a href="research.html" class="section-button">Explore Research</a>
+  </section>
 
-    <section id="research">
-      <h2>Research</h2>
-      <p>
-        - Music and emotion<br>
-        - Auditory Perception<br>
-        - EEG, fMRI, and Biological studies <br>
-      </p>
-      <a href="research.html" class="section-button">Learn More</a>
-    </section>
+  <section id="music">
+    <h2>Music</h2>
+    <p>
+      I enjoy music performance and exploring how music influences emotional experience. 
+      Click below to see my music portfolio and band updates.
+    </p>
+    <a href="music.html" class="section-button">See Music Portfolio</a>
+  </section>
 
-<section id="music">
-  <h2>Music</h2>
-  <p>
-    I enjoy music performance and exploring how music influences emotional experience. 
-    Click below to see my music portfolio.
-  </p>
-  <a href="music.html" class="section-button">See Music</a>
-</section>
+  <section id="cv">
+    <h2>Curriculum Vitae</h2>
+    <p>
+      You can view or download my full resume/CV to learn more about my academic background.
+    </p>
+    <a href="XinyuWang_CV.pdf" target="_blank" class="section-button">Download CV</a>
+  </section>
 
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Feel free to reach out to me via email or check my code repositories.</p>
+    <p>
+      <strong>Email:</strong> <a href="mailto:sinorywang@gmail.com" class="contact-link">sinorywang@gmail.com</a>
+    </p>
+    <p>
+      <strong>GitHub:</strong> <a href="https://github.com/sinorywang" target="_blank" class="contact-link">sinorywang</a>
+    </p>
+  </section>
 
-    <section id="cv">
-      <h2>CV</h2>
-      <p>
-        You can view or download my CV <a href="XinyuWang_CV.pdf" style="color:#4a90e2;">here</a>.
-      </p>
-    </section>
+</main>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>
-        Email: <a href="mailto:sinorywang@gmail.com" class="contact-link">sinorywang@gmail.com</a><br>
-        GitHub <a href="https://github.com/sinorywang" target="_blank" class="contact-link">sinorywang</a>
-      </p>
-    </section>
-  </main>
-
-  <footer>
-    © 2025 Xinyu Wang | Personal Homepage
-  </footer>
+<footer>
+  © 2025 Xinyu Wang | Personal Homepage
+</footer>
 
 </body>
 </html>
