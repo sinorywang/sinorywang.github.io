@@ -3,101 +3,204 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Research - Xinyu Wang</title>
+  <title>Research | Xinyu Wang</title>
   <style>
+    /* 全局设置 */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
     body {
-      margin:0;
-      padding:0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: url('research_bg.jpg') no-repeat center center/cover;
-      color: #000;
-      position: relative;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      /* 背景使用极淡的灰蓝色，比纯白更有质感 */
+      background-color: #f7f9fc; 
+      color: #333;
+      line-height: 1.7;
     }
 
+    /* 导航栏 - 白色磨砂效果 */
     nav {
-      background: rgba(255,255,255,0.8);
-      padding:10px;
-      text-align:center;
       position: sticky;
-      top:0;
-      z-index:1;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.9); /* 白色半透明 */
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      padding: 15px 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* 极浅的阴影 */
     }
     nav a {
-      margin:0 15px;
-      color:#000;
-      font-weight:bold;
-      text-decoration:none;
-    }
-    nav a:hover { text-decoration:underline; }
-
-    body::before {
-      content:"";
-      position:absolute;
-      top:0; left:0; right:0; bottom:0;
-      background-color: rgba(255,255,255,0.0);
-      z-index:0;
-    }
-
-    .content {
+      color: #555;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
       position: relative;
-      z-index:1;
-      max-width:900px;
-      margin:60px auto;
-      padding:0 20px;
+      font-size: 1.05rem;
+    }
+    nav a:hover, nav a.active {
+      color: #4a90e2;
+    }
+    /* 导航下划线动画 */
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: #4a90e2;
+      transition: width 0.3s;
+    }
+    nav a:hover::after, nav a.active::after {
+      width: 100%;
     }
 
-    h1 {
-      text-align:center;
-      margin-bottom:20px;
+    /* 主容器 */
+    .container {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 0 20px;
     }
 
-    .brief {
-      text-align:center;
-      line-height:1.6;
-      margin-bottom:50px;
-      font-size:1.2em;
+    /* 头部区域 */
+    header {
+      text-align: center;
+      margin-bottom: 60px;
+      animation: fadeIn 0.8s ease-out;
+    }
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #2d3748;
+      letter-spacing: -0.5px;
+    }
+    .intro-text {
+      font-size: 1.15rem;
+      color: #4a5568;
+      max-width: 750px;
+      margin: 0 auto;
+    }
+    /* 链接样式优化 */
+    .link-highlight {
+      color: #4a90e2;
+      text-decoration: none;
+      border-bottom: 1px dotted #4a90e2;
+      transition: all 0.2s;
+    }
+    .link-highlight:hover {
+      background-color: rgba(74, 144, 226, 0.1);
+      border-bottom: 1px solid #4a90e2;
     }
 
-    .project, .experience {
-      background: rgba(255,255,255,0.8);
-      padding:15px 20px;
-      border-left:5px solid #4a90e2;
-      margin-bottom:30px;
-      border-radius:8px;
-      box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    /* 卡片通用样式 (白底 + 柔和阴影) */
+    .card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 35px;
+      margin-bottom: 40px;
+      /* 关键：使用双层阴影打造立体感 */
+      box-shadow: 
+        0 4px 6px rgba(0, 0, 0, 0.02), 
+        0 10px 15px rgba(0, 0, 0, 0.03);
+      border: 1px solid #edf2f7;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 25px rgba(0, 0, 0, 0.05);
     }
 
-    .project h2 {
-      margin-bottom:10px;
+    /* 项目标题 */
+    .project-title {
+      color: #2d3748;
+      font-size: 1.6rem;
+      margin-bottom: 15px;
+      font-weight: 700;
     }
-    .experience h2 {
-      margin-bottom:5px;
-      font-size:1.1em; /* 比项目标题小 */
+    
+    /* 标签样式 (Tags) */
+    .tags {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
     }
-    .experience p {
-      margin:0;
-      line-height:1.4;
-      font-size:0.9em;
-      color:#333;
-    }
-
-    .logos {
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      gap:40px;
-      margin-top:50px;
-      flex-wrap:wrap;
-    }
-    .logos img {
-      height:60px; 
-      object-fit:contain;
-      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    .tag {
+      font-size: 0.85rem;
+      padding: 5px 14px;
+      border-radius: 20px;
+      background: #ebf8ff; /* 浅蓝底 */
+      color: #3182ce;      /* 深蓝字 */
+      font-weight: 600;
     }
 
-    @media(max-width:768px){
-      .brief { font-size:1em; }
-      .logos img { height:50px; }
+    /* 经历部分标题 */
+    .section-title {
+      font-size: 2rem;
+      color: #2d3748;
+      margin: 60px 0 40px;
+      padding-left: 15px;
+      border-left: 5px solid #4a90e2;
+    }
+
+    /* 时间轴样式 (Timeline) - 白色版 */
+    .timeline {
+      position: relative;
+      border-left: 2px solid #e2e8f0; /* 浅灰色线条 */
+      margin-left: 10px;
+      padding-left: 30px;
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 40px;
+    }
+    .timeline-dot {
+      position: absolute;
+      left: -37px;
+      top: 6px;
+      width: 16px;
+      height: 16px;
+      background: #fff;
+      border: 3px solid #4a90e2; /* 蓝色圆环 */
+      border-radius: 50%;
+    }
+
+    .timeline-content {
+      background: #ffffff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+      border: 1px solid #edf2f7;
+    }
+    .timeline-content h3 {
+      font-size: 1.25rem;
+      color: #2d3748;
+      margin-bottom: 5px;
+    }
+    .supervisor {
+      display: block;
+      font-size: 0.9rem;
+      color: #718096;
+      margin-bottom: 12px;
+      font-style: italic;
+    }
+
+    /* 动画 */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* 移动端适配 */
+    @media(max-width: 768px){
+      header h1 { font-size: 2.2rem; }
+      .container { padding: 0 15px; }
+      .timeline { border-left: none; padding-left: 0; margin-left: 0; }
+      .timeline-dot { display: none; }
+      .card, .timeline-content { padding: 20px; }
+      nav { flex-wrap: wrap; gap: 15px; }
     }
   </style>
 </head>
@@ -105,45 +208,80 @@
 
   <nav>
     <a href="index.html">Home</a>
-    <a href="research.html">Research</a>
+    <a href="research.html" class="active">Research</a>
     <a href="music.html">Music</a>
-    <a href="CV.pdf">CV</a>
-    <a href="#contact">Contact</a>
+    <a href="XinyuWang_CV.pdf" target="_blank">CV</a>
+    <a href="index.html#contact">Contact</a>
   </nav>
 
-  <div class="content">
-    <h1>Research</h1>
-    <p class="brief">
-      My research focuses on music cognition, mental health, and neuroscience. I am interested in understanding how music influences emotional experience and cognitive processes using behavioral and physiological methods.
-      Besides, I love to develop small web audio tools for auditory process, you can find them in my GitHub.
-    </p>
+  <div class="container">
+    
+    <header>
+      <h1>Research Interest</h1>
+      <p class="intro-text">
+        My research focuses on <strong>music cognition</strong>, <strong>mental health</strong>, and <strong>neuroscience</strong>. 
+        I am interested in understanding how music influences emotional experience and cognitive processes using behavioral and physiological methods.
+      </p>
+      <div style="margin-top: 20px;">
+        <a href="https://github.com/sinorywang" target="_blank" class="link-highlight">
+          Check out my Web Audio Tools on GitHub →
+        </a>
+      </div>
+    </header>
 
-    <div class="project">
-      <h2>How Consonant and Dissonant Music affect Neural Synchrony: An EEG Study</h2>
-      <p>
-        Using ten house music tracks with almost the same bpm (123), modulated into better and worse superposition versions using Audacity.
-        Collected subjects' tapping synchrony to the beats and EEG data, then used Temporal Response Function to test the music-brain synchrony.
+    <div class="card project-card">
+      <div class="tags">
+        <span class="tag">EEG Study</span>
+        <span class="tag">Neural Synchrony</span>
+        <span class="tag">Audacity</span>
+        <span class="tag">Data Analysis</span>
+      </div>
+      <h2 class="project-title">How Consonant and Dissonant Music affect Neural Synchrony</h2>
+      <p style="color: #4a5568;">
+        This study investigates the music-brain synchrony using ten house music tracks with a consistent BPM of 123. 
+        The tracks were modulated into better and worse superposition versions using Audacity. 
+        We collected subjects' tapping synchrony to the beats alongside EEG data, utilizing the <strong>Temporal Response Function (TRF)</strong> to analyze the neural entrainment.
       </p>
     </div>
 
-    <!-- Research Experience -->
-    <h1>Research Experience</h1>
+    <h2 class="section-title">Research Experience</h2>
+    
+    <div class="timeline">
+      
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>Research Intern at Music, Brain and Health Lab</h3>
+          <span class="supervisor">Supervisor: Dr. Daniel Bowling | Stanford University</span>
+          <p style="color: #4a5568;">
+            Leading an independent project on <strong>Neural Synchrony</strong>, investigating how musical features correlate with brain wave synchronization.
+          </p>
+        </div>
+      </div>
 
-    <div class="experience">
-      <h2>Research Intern at Music, Brain and Health Lab (Supervisor: Dr. Daniel Bowling)</h2>
-      <p>Led an independent project on Neural Synchrony.</p>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>Remote Research Assistant</h3>
+          <span class="supervisor">Supervisor: Dr. Tao Lin | Center for Treatment and Study of Anxiety, UPenn</span>
+          <p style="color: #4a5568;">
+            Conducted screening and correlation analysis of academic articles related to network meta-analysis, contributing to large-scale anxiety treatment studies.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>Research Assistant</h3>
+          <span class="supervisor">Supervisor: Dr. Yi Du | Institute of Psychology, CAS</span>
+          <p style="color: #4a5568;">
+            Cooperated with PhD students on an <strong>EEG-fMRI project</strong>, studying the Temporoparietal Junction (TPJ) and Insula regions to understand mechanisms of music reward processing.
+          </p>
+        </div>
+      </div>
+
     </div>
-
-    <div class="experience">
-      <h2>Remote RA at Center for Treatment and Study of Anxiety, University of Pennsylvania (Supervisor: Dr. Tao Lin)</h2>
-      <p>Screening and correlation analysis of articles related to network meta-analysis.</p>
-    </div>
-
-    <div class="experience">
-      <h2>RA at Institute of Psychology, Chinese Academy of Science (Supervisor: Dr. Yi Du)</h2>
-      <p>Cooperated with PhD student on EEG-fMRI project, studying TPJ and insula in music reward.</p>
-    </div>
-
 
   </div>
 
