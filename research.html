@@ -8,50 +8,39 @@
     :root {
       --bg-color: #050505;
       --text-main: #f0f0f0;
-      --text-sub: #888;
+      --text-sub: #aaa;
       --accent: #fff;
-      --border-color: #333;
+      --border-color: #444; /* 稍微提亮边框，使其在ReBG上可见 */
       --font-main: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       --font-mono: 'Courier New', Courier, monospace;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     
-    /* --- Body 样式修改 --- */
     body {
       font-family: var(--font-main);
-      background-color: var(--bg-color); /* 兜底色 */
+      background-color: var(--bg-color);
       color: var(--text-main);
-      line-height: 1.5;
-      position: relative; /* 为伪元素定位做准备 */
+      line-height: 1.6;
+      position: relative;
     }
 
-    /* 添加背景图和遮罩 */
+    /* --- ReBG 背景图处理 --- */
     body::before {
-      content: "";
-      position: fixed; /* 固定背景，不随滚动移动 */
-      top: 0; left: 0; right: 0; bottom: 0;
-      /* 替换为你上传的图片 ReBG.png */
-      background: url('ReBG.png') no-repeat center center / cover;
-      z-index: -2; /* 放在最底层 */
-      opacity: 0.4; /* 降低图片本身的透明度，避免太抢眼 */
-    }
-
-    /* 添加一层黑色半透明遮罩，提高文字可读性 */
-    body::after {
       content: "";
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
-      background-color: rgba(5, 5, 5, 0.85); /* 深色遮罩 */
-      z-index: -1; /* 放在背景图之上，内容之下 */
-      backdrop-filter: blur(3px); /* 可选：轻微模糊背景图，更有景深感 */
+      background: url('ReBG.png') no-repeat center center / cover;
+      z-index: -2;
+      /* 关键效果：黑白 + 降低亮度，营造冷酷氛围 */
+      filter: grayscale(100%) brightness(0.4); 
     }
 
     nav {
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(5, 5, 5, 0.9);
+      background: rgba(5, 5, 5, 0.8); /* 稍微加深导航栏背景 */
       backdrop-filter: blur(5px);
       display: flex;
       justify-content: space-between;
@@ -73,8 +62,10 @@
     nav a:hover { color: var(--text-main); text-decoration: line-through; }
 
     header {
-      padding: 120px 40px 60px;
+      padding: 140px 40px 60px;
       border-bottom: 1px solid var(--border-color);
+      max-width: 1400px;
+      margin: 0 auto;
     }
     header h1 {
       font-size: 5vw;
@@ -86,17 +77,16 @@
     }
     .intro-text {
       font-size: 1.5rem;
-      color: #ccc;
+      color: #ddd;
       max-width: 900px;
       line-height: 1.4;
     }
-    .intro-text strong {
-      color: #000;
-      background-color: #fff;
-      font-weight: 700;
-      padding: 2px 6px;
-      margin: 0 2px;
-      display: inline-block;
+    /* 下划线高亮风格 */
+    .intro-text strong, .project-item strong {
+      color: #fff;
+      font-weight: 400; /* 不加粗 */
+      border-bottom: 1px solid #fff;
+      padding-bottom: 2px;
     }
 
     main {
@@ -109,140 +99,116 @@
       font-family: var(--font-mono);
       color: var(--text-sub);
       font-size: 0.9rem;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
       display: block;
-      border-bottom: 1px solid var(--border-color);
       padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-color);
     }
 
-    .project-grid {
-      border: 1px solid var(--border-color);
-      margin-bottom: 80px;
+    /* --- Projects 列表风格 (简约线条) --- */
+    .project-list {
       display: flex;
       flex-direction: column;
-      /* 稍微增加背景不透明度，让卡片在背景图上更突出 */
-      background: rgba(5, 5, 5, 0.5); 
+      margin-bottom: 100px;
     }
     .project-item {
-      padding: 40px;
-      background: transparent;
-      transition: all 0.3s ease;
+      padding: 40px 0;
       border-bottom: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
     }
-    .project-item:last-child {
-      border-bottom: none;
-    }
-    .project-item:hover {
-      background: var(--accent);
-      color: #000;
-    }
-    .project-item:hover h2, 
-    .project-item:hover p,
-    .project-item:hover .tag {
-      color: #000;
-      border-color: #000;
+    .project-item:first-child { padding-top: 0; }
+    
+    .project-title {
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #fff;
     }
     
-    .tags {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
+    /* 模仿你图中的 Bullet Points 风格 */
+    .project-desc ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 10px;
     }
-    .tag {
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      color: var(--text-sub);
-      border: 1px solid var(--border-color);
-      padding: 5px 10px;
-      text-transform: uppercase;
-    }
-
-    .project-item h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      line-height: 1.1;
-      font-weight: 700;
-    }
-    .project-item p {
-      font-size: 1.1rem;
+    .project-desc li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 8px;
       color: #ccc;
-      max-width: 900px;
-      line-height: 1.6;
+      font-size: 1.1rem;
+    }
+    .project-desc li::before {
+      content: "•"; /* 或者用 "-" */
+      position: absolute;
+      left: 0;
+      color: var(--text-sub);
     }
 
+    /* --- Experience Log 风格优化 --- */
     .experience-list {
       display: flex;
       flex-direction: column;
-      border-top: 1px solid var(--border-color);
-      /* 稍微增加背景不透明度 */
-      background: rgba(5, 5, 5, 0.5);
     }
     .exp-row {
       display: grid;
-      grid-template-columns: 1fr 3fr;
+      grid-template-columns: 200px 1fr; /* 左侧固定宽度，右侧自适应 */
       padding: 30px 0;
       border-bottom: 1px solid var(--border-color);
-      transition: background 0.2s;
-    }
-    .exp-row:hover {
-      background: #111;
+      gap: 40px;
     }
     .exp-meta {
       font-family: var(--font-mono);
       color: var(--text-sub);
       font-size: 0.85rem;
-      padding-right: 20px;
       display: flex;
       flex-direction: column;
       gap: 5px;
+      text-transform: uppercase;
     }
     .exp-content h3 {
       font-size: 1.4rem;
       font-weight: 700;
       margin-bottom: 5px;
-      color: var(--text-main);
+      color: #fff;
     }
     .supervisor {
       font-family: var(--font-mono);
       font-size: 0.9rem;
       color: var(--text-sub);
-      margin-bottom: 10px;
+      margin-bottom: 15px;
       display: block;
-      border-left: 2px solid var(--border-color);
-      padding-left: 10px;
     }
     .exp-content ul {
       list-style: none;
       padding: 0;
     }
     .exp-content li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 5px;
       color: #ccc;
       font-size: 1rem;
-      margin-bottom: 5px;
-      position: relative;
-      padding-left: 15px;
     }
     .exp-content li::before {
-      content: ">";
+      content: "•";
       position: absolute;
       left: 0;
       color: var(--text-sub);
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
     }
 
     .github-link {
-      display: block;
+      display: inline-block;
       margin-top: 20px;
       font-family: var(--font-mono);
       color: var(--text-main);
       text-decoration: none;
       border: 1px solid var(--border-color);
-      padding: 15px;
-      text-align: center;
+      padding: 10px 20px;
       transition: all 0.3s;
-      background: rgba(5, 5, 5, 0.5);
+      font-size: 0.9rem;
     }
     .github-link:hover {
       background: #fff;
@@ -251,10 +217,10 @@
 
     @media(max-width: 768px){
       header h1 { font-size: 3.5rem; }
-      header { padding: 100px 20px 40px; }
+      header { padding: 120px 20px 40px; }
       main { padding: 40px 20px; }
       .exp-row { grid-template-columns: 1fr; gap: 15px; }
-      .project-item h2 { font-size: 1.8rem; }
+      .project-title { font-size: 1.6rem; }
     }
   </style>
 </head>
@@ -271,65 +237,56 @@
 </nav>
 
 <header>
-  <h1>Research<br>Interests</h1>
+  <h1>Research</h1>
   <div class="intro-text">
     Building on my previous experience, I’m interested in using deep neural networks to develop more human-like models of auditory attention in my future research. 
     In everyday life—talking with others, listening to music, or navigating busy sound environments—we effortlessly focus on certain sounds while ignoring others. 
     Yet this seemingly simple ability is actually a very complex computational problem, and we still don’t fully understand how the brain manages to do it.
+    <br>
+    <a href="https://github.com/sinorywang" target="_blank" class="github-link">
+      GITHUB / WEB AUDIO TOOLS
+    </a>
   </div>
-  <a href="https://github.com/sinorywang" target="_blank" class="github-link">
-    [ ACCESS WEB AUDIO TOOLS ON GITHUB ]
-  </a>
 </header>
 
 <main>
 
   <span class="section-label">01 // SELECTED PROJECTS</span>
-  <div class="project-grid">
+  <div class="project-list">
     
     <div class="project-item">
-      <div class="tags">
-        <span class="tag">EEG STUDY</span>
-        <span class="tag">NEURAL SYNCHRONY</span>
-        <span class="tag">AUDACITY</span>
-        <span class="tag">TRF ANALYSIS</span>
+      <div class="project-title">Effects of Musical harmony on Neural Synchrony: An EEG Study</div>
+      <div class="project-desc">
+        <ul>
+          <li>Using ten music tracks with almost same tempo (2Hz), and modulate into three superposition version (better and worse version) by Audacity, collecting subjects tapping synchrony to the beats and EEG data, then using Temporal Response Function to test the music-brain synchrony.</li>
+        </ul>
       </div>
-      <h2>Effects of Musical Harmony on Neural Synchrony: An EEG Study</h2>
-      <p>
-        Using ten music tracks with almost the same tempo (2Hz), and modulated into three superposition versions (better and worse versions) by Audacity. 
-        Collecting subjects' tapping synchrony to the beats and EEG data, then using Temporal Response Function (TRF) to test the music-brain synchrony.
-      </p>
     </div>
 
     <div class="project-item">
-      <div class="tags">
-        <span class="tag">EEG STUDY</span>
-        <span class="tag">PERCEPTUAL CURIOSITY</span>
-        <span class="tag">KEYPRESS PARADIGM</span>
-        <span class="tag">FUNDED PROJECT</span>
+      <div class="project-title">EEG Signatures of Perceptual Curiosity: Interactions between Information Presentation and Sound Ratio</div>
+      <div class="project-desc">
+        <ul>
+          <li>Funded by Chongqing Municipal Undergraduate Innovation and Entrepreneurship Training Program, this study aims to use EEG technology, this study employed a keypress–sound paradigm to investigate the differences and neural mechanisms of perceptual curiosity under information × valence conditions.</li>
+        </ul>
       </div>
-      <h2>EEG Signatures of Perceptual Curiosity: Interactions between Information Presentation and Sound Ratio</h2>
-      <p>
-        Funded by Chongqing Municipal Undergraduate Innovation and Entrepreneurship Training Program. 
-        This study employed a keypress–sound paradigm to investigate the differences and neural mechanisms of perceptual curiosity under information × valence conditions using EEG technology.
-      </p>
     </div>
 
   </div>
 
-  <span class="section-label">02 // EXPERIENCE LOG</span>
+  <span class="section-label">02 // RESEARCH EXPERIENCE</span>
   <div class="experience-list">
     
     <div class="exp-row">
       <div class="exp-meta">
-        <div>RESEARCH INTERN</div>
-        <div>JUL 2025 - NOW</div>
+        <div>Research Intern</div>
+        <div>Jul 2025 – now</div>
       </div>
       <div class="exp-content">
         <h3>Music, Brain and Health Lab, Stanford University</h3>
-        <span class="supervisor">ADVISOR: DR. DANIEL BOWLING, ASSISTANT PROFESSOR</span>
+        <span class="supervisor">Advisor: Dr. Daniel Bowling, Assistant Professor</span>
         <ul>
-          <li>Leader of an EEG project on Effects of Musical Harmony on Neural Synchrony and a pilot study on How Tempo Change affect music-brain synchrony.</li>
+          <li>Leader of a EEG project on Effects of Musical Harmony on Neural Synchrony and a pilot study on How Tempo Change affect music-brain synchrony.</li>
           <li>Creating the experiments protocols.</li>
         </ul>
       </div>
@@ -337,12 +294,12 @@
 
     <div class="exp-row">
       <div class="exp-meta">
-        <div>RESEARCH ASSISTANT</div>
-        <div>NOV 2024 - NOW</div>
+        <div>Research Assistant</div>
+        <div>Nov 2024 – now</div>
       </div>
       <div class="exp-content">
         <h3>University of Pennsylvania</h3>
-        <span class="supervisor">ADVISOR: DR. TAO LIN, INSTRUCTOR</span>
+        <span class="supervisor">Advisor: Dr. Tao Lin, Instructor</span>
         <ul>
           <li>Screening and correlation analysis of articles related to network meta-analysis, systematic reviews, writing meta-analysis protocols.</li>
         </ul>
@@ -351,60 +308,58 @@
 
     <div class="exp-row">
       <div class="exp-meta">
-        <div>RESEARCH ASSISTANT</div>
-        <div>FEB 2025 - NOW</div>
+        <div>Research Assistant</div>
+        <div>Feb 2025 – now</div>
       </div>
       <div class="exp-content">
         <h3>Liuying Lab, Southwest University</h3>
-        <span class="supervisor">ADVISOR: DR. YING LIU, ASSOCIATE PROFESSOR</span>
+        <span class="supervisor">Advisor: Dr. Ying Liu, Associate Professor</span>
         <ul>
-          <li>Assisted in an EEG study on the effect of music speed on driving emotions.</li>
-          <li>Responsible for data collection and preprocessing.</li>
+          <li>Assisted in an EEG study on the effect of music speed on driving emotions, responsible for data collection and preprocessing.</li>
         </ul>
       </div>
     </div>
 
     <div class="exp-row">
       <div class="exp-meta">
-        <div>RESEARCH ASSISTANT</div>
-        <div>AUG 2024 - JAN 2025</div>
+        <div>Research Assistant</div>
+        <div>Aug 2024 – Jan 2025</div>
       </div>
       <div class="exp-content">
-        <h3>Institute of Psychology, Chinese Academy of Sciences</h3>
-        <span class="supervisor">ADVISOR: DR. YI DU, PROFESSOR</span>
+        <h3>Institute of Psychology, Chinese Academy of Science</h3>
+        <span class="supervisor">Advisor: Dr. Yi Du, Professor</span>
         <ul>
-          <li>Cooperated with doctoral student to understand the role of the temporoparietal junction and insular cortex in music reward.</li>
-          <li>Programming, data collection, audio editing, and data analysis.</li>
+          <li>Cooperated with doctoral student, to understand the role of the temporoparietal junction and insular cortex in music reward.</li>
+          <li>Programming, data collection, audio editing and data analysis.</li>
         </ul>
       </div>
     </div>
 
     <div class="exp-row">
       <div class="exp-meta">
-        <div>SURVEYOR</div>
-        <div>NOV 2024 - DEC 2024</div>
+        <div>Surveyor</div>
+        <div>Nov 2024 – Dec 2024</div>
       </div>
       <div class="exp-content">
         <h3>CIEFR, Peking University</h3>
-        <span class="supervisor">ADVISOR: XINJIE ZHANG, PHD CANDIDATE</span>
+        <span class="supervisor">Advisor: Xinjie Zhang, PhD Candidate at Vanderbilt University</span>
         <ul>
-          <li>Data collection and verification in Yunnan Province, China.</li>
-          <li>Fulfillment of related logistics and school communication.</li>
+          <li>Data collection and verification in Yunnan Province, China, and fulfillment of related logistics, school communication, etc.</li>
         </ul>
       </div>
     </div>
 
     <div class="exp-row">
       <div class="exp-meta">
-        <div>STUDENT RESEARCHER</div>
-        <div>DEC 2022 - NOV 2024</div>
+        <div>Student Researcher</div>
+        <div>Dec 2022 – Nov 2024</div>
       </div>
       <div class="exp-content">
         <h3>Southwest University</h3>
-        <span class="supervisor">ADVISOR: DR. YOUGUO CHEN, ASSOCIATE PROFESSOR</span>
+        <span class="supervisor">Advisor: Dr. Youguo Chen, Associate Professor</span>
         <ul>
           <li>Carry out research projects as a lead researcher, investigate very short time-distance automatic and controlled processing interactions.</li>
-          <li>Programming and data analysis.</li>
+          <li>Programming, data analysis.</li>
         </ul>
       </div>
     </div>
