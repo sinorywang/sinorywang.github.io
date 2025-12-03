@@ -92,14 +92,21 @@
       padding-bottom: 10px;
     }
 
+    /* --- Project Grid 修改为支持多个项目 --- */
     .project-grid {
       border: 1px solid var(--border-color);
       margin-bottom: 80px;
+      display: flex;
+      flex-direction: column;
     }
     .project-item {
       padding: 40px;
       background: transparent;
       transition: all 0.3s ease;
+      border-bottom: 1px solid var(--border-color); /* 项目之间的分割线 */
+    }
+    .project-item:last-child {
+      border-bottom: none;
     }
     .project-item:hover {
       background: var(--accent);
@@ -128,17 +135,19 @@
     }
 
     .project-item h2 {
-      font-size: 2.5rem;
+      font-size: 2rem;
       margin-bottom: 20px;
-      line-height: 1;
+      line-height: 1.1;
+      font-weight: 700;
     }
     .project-item p {
       font-size: 1.1rem;
       color: #ccc;
-      max-width: 800px;
+      max-width: 900px;
       line-height: 1.6;
     }
 
+    /* --- Experience Log --- */
     .experience-list {
       display: flex;
       flex-direction: column;
@@ -157,24 +166,45 @@
     .exp-meta {
       font-family: var(--font-mono);
       color: var(--text-sub);
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       padding-right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
     }
     .exp-content h3 {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       font-weight: 700;
       margin-bottom: 5px;
+      color: var(--text-main);
     }
     .supervisor {
       font-family: var(--font-mono);
       font-size: 0.9rem;
       color: var(--text-sub);
-      margin-bottom: 15px;
+      margin-bottom: 10px;
       display: block;
+      border-left: 2px solid var(--border-color);
+      padding-left: 10px;
     }
-    .exp-content p {
+    .exp-content ul {
+      list-style: none; /* 去掉默认圆点，保持硬核感 */
+      padding: 0;
+    }
+    .exp-content li {
       color: #ccc;
       font-size: 1rem;
+      margin-bottom: 5px;
+      position: relative;
+      padding-left: 15px;
+    }
+    .exp-content li::before {
+      content: ">";
+      position: absolute;
+      left: 0;
+      color: var(--text-sub);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
     }
 
     .github-link {
@@ -197,8 +227,8 @@
       header h1 { font-size: 3.5rem; }
       header { padding: 100px 20px 40px; }
       main { padding: 40px 20px; }
-      .exp-row { grid-template-columns: 1fr; gap: 10px; }
-      .project-item h2 { font-size: 2rem; }
+      .exp-row { grid-template-columns: 1fr; gap: 15px; }
+      .project-item h2 { font-size: 1.8rem; }
     }
   </style>
 </head>
@@ -227,8 +257,9 @@
 
 <main>
 
-  <span class="section-label">01 // SELECTED PROJECT</span>
+  <span class="section-label">01 // SELECTED PROJECTS</span>
   <div class="project-grid">
+    
     <div class="project-item">
       <div class="tags">
         <span class="tag">EEG STUDY</span>
@@ -236,12 +267,27 @@
         <span class="tag">AUDACITY</span>
         <span class="tag">TRF ANALYSIS</span>
       </div>
-      <h2>How Consonant and Dissonant Music affect Neural Synchrony</h2>
+      <h2>Effects of Musical Harmony on Neural Synchrony: An EEG Study</h2>
       <p>
-        Using ten house music tracks with almost the same BPM (123), modulated into better and worse superposition versions using Audacity. 
-        Collected subjects' tapping synchrony to the beats and EEG data, then used Temporal Response Function (TRF) to test the music-brain synchrony.
+        Using ten music tracks with almost the same tempo (2Hz), and modulated into three superposition versions (better and worse versions) by Audacity. 
+        Collecting subjects' tapping synchrony to the beats and EEG data, then using Temporal Response Function (TRF) to test the music-brain synchrony.
       </p>
     </div>
+
+    <div class="project-item">
+      <div class="tags">
+        <span class="tag">EEG STUDY</span>
+        <span class="tag">PERCEPTUAL CURIOSITY</span>
+        <span class="tag">KEYPRESS PARADIGM</span>
+        <span class="tag">FUNDED PROJECT</span>
+      </div>
+      <h2>EEG Signatures of Perceptual Curiosity: Interactions between Information Presentation and Sound Ratio</h2>
+      <p>
+        Funded by Chongqing Municipal Undergraduate Innovation and Entrepreneurship Training Program. 
+        This study employed a keypress–sound paradigm to investigate the differences and neural mechanisms of perceptual curiosity under information × valence conditions using EEG technology.
+      </p>
+    </div>
+
   </div>
 
   <span class="section-label">02 // EXPERIENCE LOG</span>
@@ -249,37 +295,90 @@
     
     <div class="exp-row">
       <div class="exp-meta">
-        <div>INTERN</div>
-        <div>STANFORD UNIV.</div>
+        <div>RESEARCH INTERN</div>
+        <div>JUL 2025 - NOW</div>
       </div>
       <div class="exp-content">
-        <h3>Music, Brain and Health Lab</h3>
-        <span class="supervisor">SUPERVISOR: DR. DANIEL BOWLING</span>
-        <p>Led an independent project on Neural Synchrony.</p>
+        <h3>Music, Brain and Health Lab, Stanford University</h3>
+        <span class="supervisor">ADVISOR: DR. DANIEL BOWLING, ASSISTANT PROFESSOR</span>
+        <ul>
+          <li>Leader of an EEG project on Effects of Musical Harmony on Neural Synchrony and a pilot study on How Tempo Change affect music-brain synchrony.</li>
+          <li>Creating the experiments protocols.</li>
+        </ul>
       </div>
     </div>
 
     <div class="exp-row">
       <div class="exp-meta">
-        <div>REMOTE RA</div>
-        <div>UPENN</div>
+        <div>RESEARCH ASSISTANT</div>
+        <div>NOV 2024 - NOW</div>
       </div>
       <div class="exp-content">
-        <h3>Center for Treatment and Study of Anxiety</h3>
-        <span class="supervisor">SUPERVISOR: DR. TAO LIN</span>
-        <p>Screening and correlation analysis of articles related to network meta-analysis.</p>
+        <h3>University of Pennsylvania</h3>
+        <span class="supervisor">ADVISOR: DR. TAO LIN, INSTRUCTOR</span>
+        <ul>
+          <li>Screening and correlation analysis of articles related to network meta-analysis, systematic reviews, writing meta-analysis protocols.</li>
+        </ul>
       </div>
     </div>
 
     <div class="exp-row">
       <div class="exp-meta">
-        <div>RA</div>
-        <div>CAS</div>
+        <div>RESEARCH ASSISTANT</div>
+        <div>FEB 2025 - NOW</div>
       </div>
       <div class="exp-content">
-        <h3>Institute of Psychology</h3>
-        <span class="supervisor">SUPERVISOR: DR. YI DU</span>
-        <p>Cooperated with PhD student on EEG-fMRI project, studying TPJ and insula in music reward.</p>
+        <h3>Liuying Lab, Southwest University</h3>
+        <span class="supervisor">ADVISOR: DR. YING LIU, ASSOCIATE PROFESSOR</span>
+        <ul>
+          <li>Assisted in an EEG study on the effect of music speed on driving emotions.</li>
+          <li>Responsible for data collection and preprocessing.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-row">
+      <div class="exp-meta">
+        <div>RESEARCH ASSISTANT</div>
+        <div>AUG 2024 - JAN 2025</div>
+      </div>
+      <div class="exp-content">
+        <h3>Institute of Psychology, Chinese Academy of Sciences</h3>
+        <span class="supervisor">ADVISOR: DR. YI DU, PROFESSOR</span>
+        <ul>
+          <li>Cooperated with doctoral student to understand the role of the temporoparietal junction and insular cortex in music reward.</li>
+          <li>Programming, data collection, audio editing, and data analysis.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-row">
+      <div class="exp-meta">
+        <div>SURVEYOR</div>
+        <div>NOV 2024 - DEC 2024</div>
+      </div>
+      <div class="exp-content">
+        <h3>CIEFR, Peking University</h3>
+        <span class="supervisor">ADVISOR: XINJIE ZHANG, PHD CANDIDATE</span>
+        <ul>
+          <li>Data collection and verification in Yunnan Province, China.</li>
+          <li>Fulfillment of related logistics and school communication.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-row">
+      <div class="exp-meta">
+        <div>STUDENT RESEARCHER</div>
+        <div>DEC 2022 - NOV 2024</div>
+      </div>
+      <div class="exp-content">
+        <h3>Southwest University</h3>
+        <span class="supervisor">ADVISOR: DR. YOUGUO CHEN, ASSOCIATE PROFESSOR</span>
+        <ul>
+          <li>Carry out research projects as a lead researcher, investigate very short time-distance automatic and controlled processing interactions.</li>
+          <li>Programming and data analysis.</li>
+        </ul>
       </div>
     </div>
 
