@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dead Water Birds | Music</title>
   <style>
-    /* --- 复用 Index 的硬核风格变量 --- */
+    
     :root {
       --bg-color: #050505;
       --text-main: #f0f0f0;
@@ -25,7 +25,6 @@
       line-height: 1.5;
     }
 
-    /* --- 导航栏 (保持一致) --- */
     nav {
       position: fixed;
       top: 0;
@@ -51,7 +50,7 @@
     }
     nav a:hover { color: var(--text-main); text-decoration: line-through; }
 
-    /* --- 顶部大图 Header --- */
+    /* Header */
     header {
       position: relative;
       width: 100%;
@@ -63,7 +62,7 @@
       padding: 40px;
       border-bottom: 1px solid var(--border-color);
     }
-    /* 强烈的黑色渐变，保证文字清晰 */
+    /* Black */
     header::after {
       content: "";
       position: absolute;
@@ -90,14 +89,14 @@
       font-size: 1.1rem;
     }
 
-    /* --- 内容区域 --- */
+    /*content*/
     main {
       max-width: 1400px;
       margin: 0 auto;
       padding: 60px 40px;
     }
 
-    /* 标题样式 */
+    /*Title*/
     .section-label {
       font-family: var(--font-mono);
       color: var(--text-sub);
@@ -108,7 +107,7 @@
       padding-bottom: 10px;
     }
 
-    /* --- 乐队简介 Grid --- */
+    /*Grid  */
     .band-info-grid {
       display: grid;
       grid-template-columns: 2fr 1fr;
@@ -142,7 +141,7 @@
     }
     .role { color: var(--text-sub); }
 
-    /* --- 音乐播放列表 (Tracklist) --- */
+    /* Tracklist */
     .track-list {
       margin-bottom: 100px;
     }
@@ -171,22 +170,22 @@
       font-size: 0.8rem;
     }
     
-    /* 播放器样式魔改 */
+    /*  */
     audio {
       width: 300px;
       height: 40px;
-      /* 核心黑科技：反转颜色，让原本白底的播放器变成黑底 */
+      /*  */
       filter: invert(1) hue-rotate(180deg) grayscale(1); 
       border-radius: 0; /* 尝试去圆角 */
       outline: none;
     }
 
-    /* --- 海报画廊 (Poster Grid) --- */
+    /* Poster Grid */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1px; /* 极细间距 */
-      background: var(--border-color); /* 利用背景色做边框 */
+      gap: 1px; 
+      background: var(--border-color); 
       border: 1px solid var(--border-color);
     }
     .gallery-item {
@@ -200,10 +199,10 @@
       height: auto;
       display: block;
       margin-bottom: 15px;
-      filter: grayscale(100%); /* 默认黑白 */
+      filter: grayscale(100%); 
       transition: filter 0.4s;
     }
-    /* 悬停变彩色 */
+    
     .gallery-item:hover img {
       filter: grayscale(0%);
     }
@@ -214,7 +213,7 @@
       margin-top: auto; /* 沉底 */
     }
 
-    /* --- Footer 链接 --- */
+    /* --- Footer  */
     .netease-link {
       display: block;
       margin-top: 60px;
@@ -252,6 +251,7 @@
   <div class="nav-logo">DEAD WATER BIRDS</div>
   <div class="nav-links">
     <a href="index.html">Home</a>
+    <a href="ccrma.html">CCRMA</a>
     <a href="research.html">Research</a>
     <a href="music.html">Music</a>
     <a href="WangXinyu_CV.pdf">CV</a>
