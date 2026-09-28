@@ -16,7 +16,6 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    
     body {
       font-family: var(--font-main);
       background-color: var(--bg-color);
@@ -24,7 +23,6 @@
       line-height: 1.5;
       overflow-x: hidden;
     }
-
     nav {
       position: absolute;
       top: 0;
@@ -44,11 +42,7 @@
       color: #fff;
       line-height: 1;
     }
-    .nav-links {
-      display: flex;
-      gap: 30px;
-      align-items: center;
-    }
+    .nav-links { display: flex; gap: 30px; align-items: center; }
     nav a {
       color: var(--text-sub);
       text-decoration: none;
@@ -57,11 +51,7 @@
       text-transform: uppercase;
       transition: color 0.2s;
     }
-    nav a:hover {
-      color: var(--text-main);
-      text-decoration: line-through;
-    }
-
+    nav a:hover { color: var(--text-main); text-decoration: line-through; }
     header {
       position: relative;
       width: 100%;
@@ -78,12 +68,7 @@
       top: 0; left: 0; right: 0; bottom: 0;
       background: linear-gradient(to bottom, rgba(5,5,5,0) 0%, rgba(5,5,5,0.6) 80%, rgba(5,5,5,1) 100%);
     }
-    
-    .hero-text {
-      position: relative;
-      z-index: 2;
-      max-width: 1000px;
-    }
+    .hero-text { position: relative; z-index: 2; max-width: 1000px; }
     header h1 {
       font-size: 6vw;
       line-height: 0.9;
@@ -99,13 +84,7 @@
       border-left: 2px solid var(--accent);
       padding-left: 20px;
     }
-
-    main {
-      padding: 40px;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-
+    main { padding: 40px; max-width: 1400px; margin: 0 auto; }
     .section-header {
       border-top: 1px solid var(--border-color);
       padding-top: 20px;
@@ -120,18 +99,8 @@
       letter-spacing: -1px;
       line-height: 1;
     }
-    .section-label {
-      font-family: var(--font-mono);
-      color: var(--text-sub);
-      font-size: 0.9rem;
-    }
-
-    .about-content {
-      font-size: 1.5rem;
-      line-height: 1.6;
-      color: #ccc;
-      max-width: 900px;
-    }
+    .section-label { font-family: var(--font-mono); color: var(--text-sub); font-size: 0.9rem; }
+    .about-content { font-size: 1.5rem; line-height: 1.6; color: #ccc; max-width: 900px; }
     .about-content strong {
       color: #000;
       background-color: #fff;
@@ -140,14 +109,12 @@
       margin: 0 2px;
       display: inline-block;
     }
-
     .grid-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 0;
       border: 1px solid var(--border-color);
     }
-
     .grid-item {
       border-right: 1px solid var(--border-color);
       border-bottom: 1px solid var(--border-color);
@@ -160,19 +127,11 @@
       height: 300px;
       background: transparent;
     }
-
-    .grid-item:hover {
-      background: var(--accent);
-      cursor: pointer;
-    }
-    .grid-item:hover h3, 
-    .grid-item:hover p, 
+    .grid-item:hover { background: var(--accent); cursor: pointer; }
+    .grid-item:hover h3,
+    .grid-item:hover p,
     .grid-item:hover .arrow-icon,
-    .grid-item:hover .mono-tag {
-      color: #000;
-      border-color: #000;
-    }
-
+    .grid-item:hover .mono-tag { color: #000; border-color: #000; }
     .mono-tag {
       font-family: var(--font-mono);
       font-size: 0.8rem;
@@ -183,18 +142,8 @@
       margin-bottom: 15px;
       transition: inherit;
     }
-
-    .grid-item h3 {
-      font-size: 1.8rem;
-      margin-bottom: 10px;
-      font-weight: 600;
-      line-height: 1.1;
-    }
-    .grid-item p {
-      color: var(--text-sub);
-      font-size: 1rem;
-    }
-    
+    .grid-item h3 { font-size: 1.8rem; margin-bottom: 10px; font-weight: 600; line-height: 1.1; }
+    .grid-item p { color: var(--text-sub); font-size: 1rem; }
     .arrow-icon {
       align-self: flex-end;
       font-size: 2rem;
@@ -202,18 +151,9 @@
       transform: translateX(-10px);
       transition: all 0.3s ease;
     }
-    .grid-item:hover .arrow-icon {
-      opacity: 1;
-      transform: translateX(0);
-    }
-    
+    .grid-item:hover .arrow-icon { opacity: 1; transform: translateX(0); }
     .grid-item:nth-child(3n) { border-right: none; }
-
-    .contact-area {
-      margin-top: 100px;
-      border-top: 1px solid var(--border-color);
-      padding: 60px 0;
-    }
+    .contact-area { margin-top: 100px; border-top: 1px solid var(--border-color); padding: 60px 0; }
     .contact-link {
       display: block;
       font-size: 4vw;
@@ -224,29 +164,16 @@
       line-height: 0.9;
       transition: color 0.3s;
     }
-    .contact-link:hover {
-      color: #444;
-      font-style: italic;
-    }
-    .social-links {
-      margin-top: 30px;
-      font-family: var(--font-mono);
-    }
-    .social-links a {
-      color: var(--text-sub);
-      margin-right: 30px;
-      text-decoration: none;
-      font-size: 0.9rem;
-    }
-    .social-links a:hover {
-      text-decoration: underline;
-      color: #fff;
-    }
-
+    .contact-link:hover { color: #444; font-style: italic; }
+    .social-links { margin-top: 30px; font-family: var(--font-mono); }
+    .social-links a { color: var(--text-sub); margin-right: 30px; text-decoration: none; font-size: 0.9rem; }
+    .social-links a:hover { text-decoration: underline; color: #fff; }
     @media(max-width: 768px){
-      .nav-logo { font-size: 1.5rem; }
+      .nav-logo { font-size: 1.2rem; }
       header h1 { font-size: 8vw; }
-      nav { padding: 15px 20px; position: absolute; background: transparent; }
+      nav { padding: 15px 20px; position: absolute; background: transparent; flex-wrap: wrap; gap: 12px; }
+      .nav-links { gap: 12px; flex-wrap: wrap; }
+      nav a { font-size: 0.8rem; }
       main { padding: 20px; }
       .grid-item { border-right: none; height: auto; padding: 40px 20px; }
       .grid-item:nth-child(3n) { border-right: none; }
@@ -262,6 +189,7 @@
   <div class="nav-links">
     <a href="index.html">Home</a>
     <a href="research.html">Research</a>
+    <a href="#ccrma">CCRMA</a>
     <a href="music.html">Music</a>
     <a href="WangXinyu_CV.pdf">CV</a>
   </div>
@@ -278,7 +206,6 @@
 </header>
 
 <main>
-
   <section id="about">
     <div class="section-header">
       <h2>About Me</h2>
@@ -286,7 +213,7 @@
     </div>
     <div class="about-content">
       <p>
-        I am a researcher and musician interested in how the brain processes sound and how people experience music. 
+        I am a researcher and musician interested in how the brain processes sound and how people experience music.
         My work broadly focuses on auditory perception and music cognition, and I also play bass in an electronic punk band <strong>DeadWaterBirds</strong>.
       </p>
     </div>
@@ -297,9 +224,8 @@
       <h2>Research</h2>
       <span class="section-label">02 // PROJECTS</span>
     </div>
-
     <div class="grid-container">
-      <a href="research.html" style="text-decoration: none; color: inherit; display: contents;"> 
+      <a href="research.html" style="text-decoration: none; color: inherit; display: contents;">
         <div class="grid-item">
           <div>
             <span class="mono-tag">EEG STUDY</span>
@@ -309,18 +235,16 @@
           <div class="arrow-icon">→</div>
         </div>
       </a>
-
       <a href="research.html" style="text-decoration: none; color: inherit; display: contents;">
         <div class="grid-item">
           <div>
             <span class="mono-tag">AUDITORY PERCEPTION</span>
-            <h3>Music & Emotion</h3>
+            <h3>Music &amp; Emotion</h3>
             <p>Understanding emotional processing through physiological methods.</p>
           </div>
           <div class="arrow-icon">→</div>
         </div>
       </a>
-
       <a href="research.html" style="text-decoration: none; color: inherit; display: contents;">
         <div class="grid-item">
           <div>
@@ -334,18 +258,34 @@
     </div>
   </section>
 
+  <section id="ccrma">
+    <div class="section-header">
+      <h2>CCRMA</h2>
+      <span class="section-label">03 // CCRMA</span>
+    </div>
+    <div class="grid-container">
+      <div class="grid-item" style="width: 100%; height: auto; padding: 60px 30px; border: none;">
+        <div>
+          <span class="mono-tag">MUSIC &amp; TECHNOLOGY</span>
+          <h3 style="font-size: 2.5rem;">CCRMA</h3>
+          <p style="max-width: 600px;">Exploring the intersection of music, sound, and technology.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="music">
     <div class="section-header">
       <h2>Music</h2>
-      <span class="section-label">03 // PERFORMANCE</span>
+      <span class="section-label">04 // PERFORMANCE</span>
     </div>
     <a href="music.html" style="text-decoration: none; color: inherit;">
       <div class="grid-container" style="border: 1px solid var(--border-color);">
         <div class="grid-item" style="width: 100%; height: auto; padding: 60px 30px; border: none;">
           <span class="mono-tag">ELECTRONIC PUNK</span>
-          <h3 style="font-size: 2.5rem;">Bass Player & Band Founder</h3>
+          <h3 style="font-size: 2.5rem;">Bass Player &amp; Band Founder</h3>
           <p style="max-width: 600px;">
-            Starting an Electronic Punk band in China. Exploring the raw energy of sound. 
+            Starting an Electronic Punk band in China. Exploring the raw energy of sound.
             Click to view portfolio.
           </p>
           <div class="arrow-icon" style="margin-top: 30px;">→</div>
@@ -355,7 +295,7 @@
   </section>
 
   <footer class="contact-area" id="contact">
-    <span class="section-label">04 // CONNECT</span>
+    <span class="section-label">05 // CONNECT</span>
     <a href="mailto:sinorywang@gmail.com" class="contact-link">
       sinorywang@gmail.com
     </a>
@@ -368,8 +308,7 @@
       © 2025 XINYU WANG. ALL RIGHTS RESERVED.
     </div>
   </footer>
-
 </main>
-
 </body>
 </html>
+
