@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music 256A | Xinyu Wang</title>
+  <style>
+    :root {
+      --bg-color: #050505;
+      --text-main: #f0f0f0;
+      --text-sub: #aaa;
+      --accent: #fff;
+      --border-color: #444;
+      --font-main: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      --font-mono: 'Courier New', Courier, monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-main);
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.6;
+      position: relative;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: url('ReBG.png') no-repeat center center / cover;
+      z-index: -2;
+      filter: grayscale(100%) brightness(0.4);
+    }
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 5, 5, 0.38);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(5, 5, 5, 0.8);
+      backdrop-filter: blur(5px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      z-index: 1000;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .nav-logo { font-weight: 900; font-size: 1.2rem; letter-spacing: -1px; }
+    .nav-links { display: flex; gap: 30px; align-items: center; }
+    nav a {
+      color: var(--text-sub);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    nav a:hover, nav a[aria-current="page"] { color: var(--text-main); }
+    nav a:hover { text-decoration: line-through; }
+
+    header {
+      padding: 140px 40px 60px;
+      border-bottom: 1px solid var(--border-color);
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .eyebrow {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      color: var(--text-sub);
+      margin-bottom: 24px;
+    }
+    header h1 {
+      font-size: 5vw;
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 0.9;
+      margin-bottom: 30px;
+      letter-spacing: -2px;
+    }
+    .intro-text {
+      font-size: 1.5rem;
+      color: #ddd;
+      max-width: 900px;
+      line-height: 1.4;
+    }
+    main { max-width: 1400px; margin: 0 auto; padding: 60px 40px; }
+    .section-label {
+      font-family: var(--font-mono);
+      color: var(--text-sub);
+      font-size: 0.9rem;
+      margin-bottom: 30px;
+      display: block;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .course { margin-bottom: 80px; }
+    .course h2 { font-size: 2rem; font-weight: 700; line-height: 1.2; margin-bottom: 26px; }
+    .course h2 a { color: inherit; text-decoration: none; }
+    .course h2 a:hover { text-decoration: underline; }
+    .assignment-list { list-style: none; border-top: 1px solid var(--border-color); }
+    .assignment-list li { border-bottom: 1px solid var(--border-color); }
+    .assignment-list a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 22px 0;
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 1.15rem;
+      transition: padding 0.2s, color 0.2s;
+    }
+    .assignment-list a:hover { padding-left: 12px; color: #fff; }
+    .assignment-list a::after { content: "↗"; font-size: 1.4rem; }
+    .assignment-empty {
+      padding: 22px 0;
+      color: var(--text-sub);
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+    }
+    .page-footer {
+      border-top: 1px solid var(--border-color);
+      padding: 30px 0 10px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      color: var(--text-sub);
+    }
+    .page-footer a { color: var(--text-main); text-decoration: none; }
+    .page-footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 768px) {
+      nav { padding: 15px 20px; flex-wrap: wrap; gap: 10px; }
+      .nav-links { flex-wrap: wrap; gap: 10px 16px; }
+      nav a { font-size: 0.8rem; }
+      header { padding: 160px 20px 40px; }
+      header h1 { font-size: clamp(3.5rem, 16vw, 5rem); }
+      .intro-text { font-size: 1.2rem; }
+      main { padding: 40px 20px; }
+      .course h2 { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav aria-label="Main navigation">
+    <div class="nav-logo">XINYU WANG</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="ccrma.html" aria-current="page">CCRMA</a>
+      <a href="music.html">Music</a>
+      <a href="WangXinyu_CV.pdf">CV</a>
+    </div>
+  </nav>
+
+  <header>
+    <span class="eyebrow">CCRMA / MUSIC 256A</span>
+    <h1>Music 256A</h1>
+    <div class="intro-text">
+      Reading responses for Music 256A. I’ll add each response here as I publish it.
+    </div>
+  </header>
+
+  <main>
+    <section class="course" id="reading-responses" aria-labelledby="responses-title">
+      <span class="section-label">01 // READING RESPONSE</span>
+      <h2 id="responses-title">Reading Response</h2>
+      <ul class="assignment-list">
+        <li class="assignment-empty">Reading responses coming soon.</li>
+        <!-- Replace the line above with: <li><a href="YOUR-LINK">Reading response title</a></li> -->
+      </ul>
+    </section>
+
+    <footer class="page-footer">
+      <a href="ccrma.html">← BACK TO CCRMA</a>
+      <a href="mailto:sinorywang@gmail.com">SINORYWANG@GMAIL.COM ↗</a>
+    </footer>
+  </main>
+</body>
+</html>
